@@ -1,1 +1,1 @@
-export const NAVBUTTONS = ['New', 'Graphs', 'Connect Wallet']
+export const NAVBUTTONS = ['Home', 'News', 'Connect Wallet']
