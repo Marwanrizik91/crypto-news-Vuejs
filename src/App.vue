@@ -1,18 +1,20 @@
 <template>
   <div id="app">
-    <SearchBar/>
+    <div id="nav">
+      <NavBar />
+    </div>
+    <router-view/>
   </div>
 </template>
 
 <script>
-import SearchBar from "./components/SearchBar.vue";
-
+  import NavBar from './components/NavBar.vue'
 export default {
-  name: "App",
+  name: "app",
   components: {
-    SearchBar,
-  },
-};
+NavBar,
+  }
+}
 </script>
 
 <style>
@@ -22,6 +24,18 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>
