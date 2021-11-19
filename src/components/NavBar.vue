@@ -2,18 +2,15 @@
   <div class="navBarTop">
     <SearchBar />
     <div class="navButton_container">
-      <CustomButton
-        v-for="buttonName in navigationButtons"
-        :key="buttonName"
-        v-bind:buttonName="buttonName"
-      />
+      <router-link v-for="(button, index) in navigationButtons" :key="`button${index}`" :to="button.path">{{button.name}}</router-link>
+
     </div>
   </div>
 </template>
 
 <script>
 import SearchBar from "./SearchBar.vue";
-import CustomButton from "./CustomButton.vue";
+// import CustomButton from "./CustomButton.vue";
 import { NAVBUTTONS } from "../utils/constants.js";
 export default {
   name: "NavBar",
@@ -24,7 +21,7 @@ export default {
   },
   components: {
     SearchBar,
-    CustomButton,
+    
   },
   mounted: function () {
     this.navigationButtons = NAVBUTTONS;
