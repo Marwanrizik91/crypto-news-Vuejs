@@ -128,13 +128,20 @@ export default {
   width: 100%;
   max-width: 500px;
   height: 30px;
+  border-radius: 10px;
 }
 
+.searchBar input::placeholder  {
+  font-size: 12px;
+}
+.searchBar input {
+  padding-inline-start:10px ;
+  font-size: 16px;
+}
 .searchBar_input_container {
   position: relative;
   box-sizing: border-box;
-  width: 90%;
-  margin-left: 50px;
+  margin-left: 30px;
 }
 
 .searchBar_input_container p {

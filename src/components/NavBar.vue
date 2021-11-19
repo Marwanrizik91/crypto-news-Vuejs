@@ -1,10 +1,17 @@
 <template>
   <div class="navBarTop">
     <SearchBar />
-    <div class="navButton_container">
-      <router-link v-for="(button, index) in navigationButtons" :key="`button${index}`" :to="button.path">{{button.name}}</router-link>
-
-    </div>
+    <nav class="navButton_container">
+      <router-link
+        v-for="(button, index) in navigationButtons"
+        :key="`button${index}`"
+        :to="button.path" exact
+        router-link tag="li"
+        >
+        <p>{{ button.name }} </p>
+        </router-link
+      >
+    </nav>
   </div>
 </template>
 
@@ -15,13 +22,12 @@ import { NAVBUTTONS } from "../utils/constants.js";
 export default {
   name: "NavBar",
   data() {
-      return {
+    return {
       navigationButtons: [],
-      }
+    };
   },
   components: {
     SearchBar,
-    
   },
   mounted: function () {
     this.navigationButtons = NAVBUTTONS;
@@ -47,4 +53,16 @@ export default {
   color: #fff;
   font-size: 1rem;
 }
+nav li {
+   list-style: none;
+   padding: 0px 10px 0 10px;
+   border-radius: 15px;
+}
+
+ nav li:hover,
+ nav li.router-link-active,
+ nav li.router-link-exact-active {
+   background-color: #FF5C5C;
+   cursor: pointer;
+ }
 </style>
