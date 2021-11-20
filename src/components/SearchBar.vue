@@ -64,7 +64,7 @@ export default {
         this.showOptions = true;
         // try {
         //   const response = await axios.get(
-        //     "data.json"
+        //     "url"
         //   );
         //   this.dataObject = response;
         // } catch ({ message }) {
@@ -110,7 +110,7 @@ export default {
 
 <style lang="css" scoped>
 .navBarTop {
-  background-color: #090023;
+  background-color: var(--navyBlack);
   width: 100%;
   height: 100px;
   display: flex;
@@ -134,6 +134,7 @@ export default {
 .searchBar input::placeholder  {
   font-size: 12px;
 }
+
 .searchBar input {
   padding-inline-start:10px ;
   font-size: 16px;
@@ -157,7 +158,7 @@ export default {
 }
 
 .searchBar_list {
-  background-color: #090023;
+  background-color: var(--navyBlack);
   opacity: 0.9;
   list-style: none;
   display: flex;
@@ -189,7 +190,7 @@ export default {
 }
 
 .mouseover_listElemet {
-  background-color: #ff5c5c;
+  background-color: var(--skinRed);
 }
 
 .coin_ranking {
@@ -200,7 +201,7 @@ export default {
 
 .coin_symbol {
   font-size: 12px;
-  color: #868686;
+  color: var(--gray);
   user-select: none;
 }
 </style>
