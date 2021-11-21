@@ -1,6 +1,6 @@
 <template>
   <div class="navBarTop">
-    <SearchBar />
+    <SearchWidgetInput />
     <nav class="navButton_container">
       <router-link
         v-for="(button, index) in navigationButtons"
@@ -8,7 +8,7 @@
         :to="button.path" exact
         router-link tag="li"
         >
-        <p>{{ button.name }} </p>
+        <p>{{ button.name }}</p>
         </router-link
       >
     </nav>
@@ -16,18 +16,18 @@
 </template>
 
 <script>
-import SearchBar from "./SearchBar.vue";
+import SearchWidgetInput from "./SearchWidgetInput.vue";
 // import CustomButton from "./CustomButton.vue";
 import { NAVBUTTONS } from "../utils/constants.js";
 export default {
-  name: "NavBar",
+  name: "TheNavBar",
   data() {
     return {
       navigationButtons: [],
     };
   },
   components: {
-    SearchBar,
+    SearchWidgetInput,
   },
   mounted: function () {
     this.navigationButtons = NAVBUTTONS;
@@ -37,7 +37,7 @@ export default {
 
 <style scoped>
 .navBarTop {
-  background-color: #090023;
+  background-color: var(--navyBlack);
   width: 100%;
   height: 100px;
   display: flex;
@@ -47,7 +47,7 @@ export default {
 .navButton_container {
   width: 50%;
   display: inherit;
-  gap: 1.5rem;
+  gap: 1rem;
   align-items: center;
   justify-content: center;
   color: #fff;
@@ -55,14 +55,17 @@ export default {
 }
 nav li {
    list-style: none;
-   padding: 0px 10px 0 10px;
+   padding: 0px 15px 0 15px;
    border-radius: 15px;
+   font-size: 1rem;
+   font-weight: 800;
+   user-select: none;
 }
 
  nav li:hover,
  nav li.router-link-active,
  nav li.router-link-exact-active {
-   background-color: #FF5C5C;
+   background-color: var(--skinRed);
    cursor: pointer;
  }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    Home Page
+    {{dataObject}}
   </div>
 </template>
 
@@ -11,6 +11,12 @@ export default {
   name: 'Home',
   components: {
     
-  }
+  },
+  data() {
+    return {
+      dataObject: {}
+    }
+  },
+ 
 }
 </script>

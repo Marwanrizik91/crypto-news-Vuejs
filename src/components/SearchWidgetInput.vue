@@ -12,31 +12,7 @@
           />
           <p v-show="searchQuery" @click="handleXclick">x</p>
         </div>
-        <div
-          v-show="showOptions"
-          @mouseleave="handleMouseLeave"
-          class="options"
-        >
-          <ul>
-            <li
-              class="searchBar_list"
-              v-for="(data, index) in filteredData"
-              :key="`coin${index}`"
-              @click="handleClick(data.name)"
-              @mouseover="handleListMouseOver($event)"
-              @mouseout="handleListMouseOut($event)"
-            >
-              <img :src="data.thumb" />
-              <div class="coin_name_and_symbol">
-                <div class="coin_name">{{ data.name }}</div>
-                <div class="coin_symbol">{{ data.symbol }}</div>
-              </div>
-              <div class="coin_ranking">
-                {{ data.market_cap_rank && `#${data.market_cap_rank}` }}
-              </div>
-            </li>
-          </ul>
-        </div>
+        <SearchWidgetResultsList v-bind:showOptions.sync="showOptions" v-bind:filteredData.sync="filteredData" v-bind:selectedItem.sync="selectedItem" v-bind:searchQuery.sync="searchQuery"/>
       </div>
     </div>
 </template>
@@ -44,9 +20,11 @@
 <script>
 // import axios from "axios";
 import Data from "../data.json";
+import SearchWidgetResultsList from "./SearchWidgetResultsList.vue"
 export default {
   name: "SearchBar",
   components: {
+    SearchWidgetResultsList,
   },
   data() {
     return {
@@ -64,7 +42,7 @@ export default {
         this.showOptions = true;
         // try {
         //   const response = await axios.get(
-        //     "data.json"
+        //     "url"
         //   );
         //   this.dataObject = response;
         // } catch ({ message }) {
@@ -110,7 +88,7 @@ export default {
 
 <style lang="css" scoped>
 .navBarTop {
-  background-color: #090023;
+  background-color: var(--navyBlack);
   width: 100%;
   height: 100px;
   display: flex;
@@ -134,6 +112,7 @@ export default {
 .searchBar input::placeholder  {
   font-size: 12px;
 }
+
 .searchBar input {
   padding-inline-start:10px ;
   font-size: 16px;
@@ -152,55 +131,4 @@ export default {
 }
 
 
-.options {
-  width: 100%;
-}
-
-.searchBar_list {
-  background-color: #090023;
-  opacity: 0.9;
-  list-style: none;
-  display: flex;
-  gap: 15px;
-  align-items: center;
-  color: #fff;
-  padding: 10px 0 10px 10px;
-  cursor: pointer;
-}
-
-.searchBar_list:last-child {
-  border-radius: 0 0 15px 15px;
-}
-
-
-.searchBar_list img {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  user-select: none;
-}
-
-.coin_name_and_symbol {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 100%;
-  user-select: none;
-}
-
-.mouseover_listElemet {
-  background-color: #ff5c5c;
-}
-
-.coin_ranking {
-  font-size: 12px;
-  padding-right: 10px;
-  user-select: none;
-}
-
-.coin_symbol {
-  font-size: 12px;
-  color: #868686;
-  user-select: none;
-}
 </style>
