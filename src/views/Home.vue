@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    {{dataObject}}
+    {{selectedItemComputed}}
   </div>
 </template>
 
@@ -9,6 +9,7 @@
 
 export default {
   name: 'Home',
+
   components: {
     
   },
@@ -17,6 +18,10 @@ export default {
       dataObject: {}
     }
   },
- 
+  computed: {
+    selectedItemComputed: function() {
+      return this.$store.getters.getSelectedItem.toLowerCase()
+    }
+  },
 }
 </script>
