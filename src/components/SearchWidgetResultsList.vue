@@ -41,6 +41,7 @@ export default {
 
     },
     handleClick: function (data) {
+        this.$store.commit('setSelectedSearchItem', data)
         this.$emit('update:searchQuery', data)
         this.$emit('update:selectedItem', data)
         this.$emit('update:showOptions', false)
@@ -94,5 +95,17 @@ export default {
 }
 .mouseover_listElemet {
   background-color: var(--skinRed);
+}
+
+.coin_ranking {
+  font-size: 12px;
+  padding-right: 10px;
+  user-select: none;
+}
+
+.coin_symbol {
+  font-size: 12px;
+  color: var(--gray);
+  user-select: none;
 }
 </style>

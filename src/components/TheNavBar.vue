@@ -21,6 +21,9 @@ import SearchWidgetInput from "./SearchWidgetInput.vue";
 import { NAVBUTTONS } from "../utils/constants.js";
 export default {
   name: "TheNavBar",
+  props: {
+    selectedItem: String
+  },
   data() {
     return {
       navigationButtons: [],

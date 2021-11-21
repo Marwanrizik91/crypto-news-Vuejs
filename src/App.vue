@@ -3,25 +3,27 @@
     <div id="nav">
       <TheNavBar />
     </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
 <script>
-  import TheNavBar from './components/TheNavBar.vue'
+import TheNavBar from "./components/TheNavBar.vue";
+import store from "./store";
+
 export default {
   name: "app",
+  store,
   components: {
-TheNavBar,
-  }
-}
+    TheNavBar,
+  },
+};
 </script>
 
 <style>
-
 :root {
   --navyBlack: #090023;
-  --skinRed: #FF5C5C;
+  --skinRed: #ff5c5c;
   --gray: #868686;
 }
 
@@ -35,6 +37,4 @@ body {
   padding: 0;
   margin: 0;
 }
-
-
 </style>

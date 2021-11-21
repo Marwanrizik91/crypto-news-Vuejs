@@ -26,6 +26,7 @@ export default {
   components: {
     SearchWidgetResultsList,
   },
+   
   data() {
     return {
       dataObject: "",
@@ -57,18 +58,11 @@ export default {
     handleMouseEnter: function () {
       this.showOptions = true;
     },
-    handleMouseLeave: function () {
-      this.showOptions = false;
-    },
+
     handleXclick: function () {
       this.searchQuery = "";
     },
-    handleListMouseOver: function (e) {
-      e.currentTarget.classList.add("mouseover_listElemet");
-    },
-    handleListMouseOut: function (e) {
-      e.currentTarget.classList.remove("mouseover_listElemet");
-    },
+
   },
   computed: {
     filteredData: function () {
