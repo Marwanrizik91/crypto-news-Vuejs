@@ -1,6 +1,6 @@
 <template>
   <div class="navBarTop">
-    <SearchBar />
+    <SearchWidgetInput />
     <nav class="navButton_container">
       <router-link
         v-for="(button, index) in navigationButtons"
@@ -16,18 +16,18 @@
 </template>
 
 <script>
-import SearchBar from "./SearchBar.vue";
+import SearchWidgetInput from "./SearchWidgetInput.vue";
 // import CustomButton from "./CustomButton.vue";
 import { NAVBUTTONS } from "../utils/constants.js";
 export default {
-  name: "NavBar",
+  name: "TheNavBar",
   data() {
     return {
       navigationButtons: [],
     };
   },
   components: {
-    SearchBar,
+    SearchWidgetInput,
   },
   mounted: function () {
     this.navigationButtons = NAVBUTTONS;
