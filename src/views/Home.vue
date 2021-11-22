@@ -1,6 +1,12 @@
 <template>
   <div class="home">
-    {{selectedItemComputed}}
+    <div class="information_bar"></div>
+    <div class="display_home_grid">
+
+    <Skeleton class="grid_element1" :width="style.mainBlock.width" :height="style.mainBlock.height">
+        
+    </Skeleton>
+    </div>
   </div>
 </template>
 
@@ -10,13 +16,19 @@
 export default {
   name: 'Home',
 
-  components: {
-    
-  },
   data() {
     return {
-      dataObject: {}
+      style: {
+        mainBlock: {
+          width: 'auto',
+          height: 450
+        }
+      }
     }
+  },
+
+  components: {
+    Skeleton: () => import('../components/TheSkeleton.vue')
   },
   computed: {
     selectedItemComputed: function() {
@@ -25,3 +37,15 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.display_home_grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  grid-template-rows:1fr 1fr ;
+}
+
+.grid_element1 {
+  grid-column-start: 2;
+}
+</style>
