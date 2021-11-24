@@ -2,12 +2,17 @@
   <div class="home">
     <div class="information_bar"></div>
     <div class="display_home_grid">
+      <div class="card_container">
+        
       <Skeleton
-        class="card_container"
-        :style="styles"
-      >
-        <Skeleton></Skeleton>
-      </Skeleton>
+        :class="styles.cardContainer.class"
+        :style="styles.cardContainer"
+      />
+        <Skeleton  :style="styles.imgHolder" :class="styles.imgHolder.class"/>
+        <Skeleton  :style="styles.textHolder" :class="styles.textHolder.class"/>
+        <Skeleton  :style="styles.textHolderSmall" :class="styles.textHolderSmall.class"/>
+        <Skeleton  :style="styles.textHolderxSmall" :class="styles.textHolderxSmall.class"/>
+      </div>
     </div>
   </div>
 </template>
@@ -17,14 +22,38 @@
 
 export default {
   name: "Home",
-
   data() {
     return {
       styles: {
-        
+        cardContainer: {
+          class: "card_wrapper",
           width: "auto",
           height: '450px',
-        
+        },
+        imgHolder: {
+          class: 'img_holder',
+          background: '#c4c4c4',
+          width: '350px',
+          height: '250px',
+        },
+        textHolder: {
+          class: 'text_holder',
+          background: '#c4c4c4',
+          width: '370px',
+          height: '40px'
+        },
+        textHolderSmall: {
+          class: 'text_holder_small',
+          background: '#c4c4c4',
+          width: '320px',
+          height: '30px'
+        },
+        textHolderxSmall: {
+          class: 'text_holder_xsmall',
+          background: '#c4c4c4',
+          width: '280px',
+          height: '20px'
+        }
       },
     };
   },
@@ -49,5 +78,28 @@ export default {
 
 .card_container {
   grid-column-start: 2;
+  position: relative;
 }
+ .img_holder {
+   position: absolute;
+   top: 30px;
+   left: 12%;
+ }
+ .text_holder {
+   position: absolute;
+   bottom: 100px;
+   left: 10%;
+ }
+
+ .text_holder_small {
+   position: absolute;
+   bottom: 50px;
+   left: 14%;
+ }
+ .text_holder_xsmall {
+   position: absolute;
+   bottom: 12px;
+   left: 18%;
+ }
+
 </style>
