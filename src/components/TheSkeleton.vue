@@ -3,6 +3,7 @@
     :class="styles.class"
     :style="styles"
   >
+  <slot></slot>
   </div>
 </template>
 

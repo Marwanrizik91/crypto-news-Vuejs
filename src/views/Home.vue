@@ -7,11 +7,13 @@
       <Skeleton
         :class="styles.cardContainer.class"
         :style="styles.cardContainer"
-      />
+      >
+      
         <Skeleton  :style="styles.imgHolder" :class="styles.imgHolder.class"/>
         <Skeleton  :style="styles.textHolder" :class="styles.textHolder.class"/>
         <Skeleton  :style="styles.textHolderSmall" :class="styles.textHolderSmall.class"/>
         <Skeleton  :style="styles.textHolderxSmall" :class="styles.textHolderxSmall.class"/>
+      </Skeleton>
       </div>
     </div>
   </div>
@@ -79,27 +81,15 @@ export default {
 .card_container {
   grid-column-start: 2;
   position: relative;
+  box-sizing: border-box;
 }
- .img_holder {
-   position: absolute;
-   top: 30px;
-   left: 12%;
- }
- .text_holder {
-   position: absolute;
-   bottom: 100px;
-   left: 10%;
- }
 
- .text_holder_small {
-   position: absolute;
-   bottom: 50px;
-   left: 14%;
- }
- .text_holder_xsmall {
-   position: absolute;
-   bottom: 12px;
-   left: 18%;
- }
+.card_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+ 
 
 </style>
